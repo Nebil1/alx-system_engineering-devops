@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 # displays infinite message and catch SIGTERM signal to print other message
-trap 'echo "I am invincible!!!"' SIGTERM
-while :
+
+while true
 do
-	echo "To infinity and beyond"
-	sleep 2
+  echo "To infinity and beyond"
+  sleep 2
+  trap 'echo "I am invincible!!!"' SIGTERM 
 done
