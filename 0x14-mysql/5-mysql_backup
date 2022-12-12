@@ -1,6 +1,4 @@
 #!/usr/bin/env bash
-# Script that compress a SQL dump
-DATE=$(date +'%d-%m-%Y')
-export MYSQL_PWD=$1
-mysqldump -uroot --all-databases > backup.sql
-sudo tar -czf "$DATE".tar.gz backup.sql
+# Dumps and archives all MySQL databases
+mysqldump --all-databases -u root --password="$1" > backup.sql
+tar -cvzf "$(date '+%d-%m-%Y.tar.gz')" backup.sql
